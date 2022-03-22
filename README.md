@@ -10,6 +10,6 @@ automation
 ### 03.QltPlnList.ipynb : 품질계획 현황 
    - 첫 요청시 rprtYm(보고년월 YYYYMM) 파라미터를 공백으로 전달하면, stwrDt(착공일자)과 ccwDt(준공일자)를 받을 수 있다.
       ```shell
-      curl --location --request POST 'https://www.calspia.go.kr/io/openapi/cm/selectQltPlnList.do?serviceKey=1EFCBE0D-3203-4485-A7BA-  5F5DB2B476BF&sptNo=C2004186&rprtYm=&type=json' --header 'Content-Type: application/json' --header 'Cookie: SCOUTER=x2nj8pjj2m8pdb; JSESSIONID=E8E7C40F9C9EF421FB02BA5F210260F0.node_io_01'
+      curl --location --request POST 'https://www.calspia.go.kr/io/openapi/cm/selectQltPlnList.do?serviceKey=1EFCBE0D-3203-4485-A7BA-5F5DB2B476BF&sptNo=C2004186&rprtYm=&type=json' --header 'Content-Type: application/json'
       ```
    - 착공일자와 준공일자를 기준으로 rprtYm(보고년월) 파라미터 정보로 반복 전달하여 정보를 수신한다.  
