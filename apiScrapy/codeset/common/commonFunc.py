@@ -27,12 +27,20 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
             
             if(inPageYn==1):
                 inParam["pageNo"] = i
-            queryParams = '?' + urlencode(inParam)
             
+            queryParams = '?' + urlencode(inParam)
             response = requests.get(inUrl+queryParams)
             response.encoding=STDENCODING
             rowData = pd.DataFrame()
+            print(rowData)
             if(inType=="jsonabnormal"):
+                # 비정상 데이터는 response 섹션이 없음
+                if(response.json().get('response') == None):
+                    jsondata = response.json()["header"]["resultMsg"]
+                    if( jsondata == "NODATA_ERROR"):
+                        print("{} page is empty".format(i))
+                        break
+
                 jsondata = response.json()["response"]["body"][jsonkey]
 
                 if( jsondata == []):
