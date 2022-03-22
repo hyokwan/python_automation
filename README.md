@@ -6,3 +6,4 @@ automation
 ### 09.ProjConstYearContractList.ipynb : 연도별 공사계약 목록
 ### 02.AcpsRprtList.ipynb : 기성정보 현황 
    - '기성정보 현황' 요청시 '연도별 공사계약 목록'의 sptno, sptto 정보를 사용해야 함 
+   - 09.ProjConstYearContractList.ipynb를 선 수행하여 selectIoCmProjConstYearContractList.csv 파일을 output에 생성해야 함
