@@ -15,4 +15,14 @@ automation
    - respose.body.totalcount != 0 이면, 세부 데이터가 있음. 데이터는 response.body.detailList1 ~ 5 중에 임의의 리스트에 들어오므로 보고년월을 순차 반복 호출한다.
      (예> C2016001, 201512 는 detailList1에 데이터가 있고, C2016001, 202101는 detailList3에 데이터가 있음)
      
-### 04.누가 할까? 손
+     
+### 47.selectIoPtVeBusinessList.ipynb : 설계VE 목록 조회
+   - 김미경 작업
+### 48.selectIoPtVeBusiness.ipynb : 설계VE 상세정보
+   - 김미경 작업
+   - '설계VE 상세정보' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
+   - 47.selectIoPtVeBusinessList.ipynb 선 수행 필요
+### 46.selectIoPtVeBusiness.ipynb : 설계VE 상세 검토조직 조회
+   - 김미경 작업
+   - '설계VE 상세 검토조직 조회' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
+   - 47.selectIoPtVeBusinessList.ipynb 선 수행 필요
