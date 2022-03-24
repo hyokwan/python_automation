@@ -94,3 +94,9 @@ def savedata(inDf, inSiteName, inDataName, inServiceName):
     createFolder(outDir)
     inDf.to_csv(outFile, index=False, encoding="ms949")
     print("{} save compled".format(inDataName) )
+    
+# Calcuate Month Duration from given 2 Parameters.
+# d1, d2 : datetime format 
+# d1 >= d2
+def calc_month(d1, d2):
+    return (d1.year - d2.year) * 12 + (d1.month - d2.month + 1)
