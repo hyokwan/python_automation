@@ -16,14 +16,18 @@ automation
      (예> C2016001, 201512 는 detailList1에 데이터가 있고, C2016001, 202101는 detailList3에 데이터가 있음)
      
      
-### 47.selectIoPtVeBusinessList.ipynb : 설계VE 목록 조회
+### 48.selectIoPtVeBusinessList.ipynb : 설계VE 목록 조회
    - 김미경 작업
 ### 46.selectIoPtVeBusiness.ipynb : 설계VE 상세 검토조직 조회
    - 김미경 작업
    - '설계VE 상세 검토조직 조회' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
-   - 47.selectIoPtVeBusinessList.ipynb 선 수행 필요
-### 48.selectIoPtVeBusiness.ipynb : 설계VE 상세정보
+   - 48.selectIoPtVeBusinessList.ipynb 선 수행 필요
+### 47.selectIoPtVEProposalList.ipynb : 설계VE 상세 VE제안목록
+   - 김미경 작업
+   - '설계VE 상세 VE제안목록' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
+   - 48.selectIoPtVeBusinessList.ipynb 선 수행 필요
+### 49.selectIoPtVeBusiness.ipynb : 설계VE 상세정보
    - 김미경 작업
    - '설계VE 상세정보' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
-   - 47.selectIoPtVeBusinessList.ipynb 선 수행 필요
+   - 48.selectIoPtVeBusinessList.ipynb 선 수행 필요
 
