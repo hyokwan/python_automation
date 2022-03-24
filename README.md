@@ -18,11 +18,12 @@ automation
      
 ### 47.selectIoPtVeBusinessList.ipynb : 설계VE 목록 조회
    - 김미경 작업
-### 48.selectIoPtVeBusiness.ipynb : 설계VE 상세정보
-   - 김미경 작업
-   - '설계VE 상세정보' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
-   - 47.selectIoPtVeBusinessList.ipynb 선 수행 필요
 ### 46.selectIoPtVeBusiness.ipynb : 설계VE 상세 검토조직 조회
    - 김미경 작업
    - '설계VE 상세 검토조직 조회' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
    - 47.selectIoPtVeBusinessList.ipynb 선 수행 필요
+### 48.selectIoPtVeBusiness.ipynb : 설계VE 상세정보
+   - 김미경 작업
+   - '설계VE 상세정보' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
+   - 47.selectIoPtVeBusinessList.ipynb 선 수행 필요
+
