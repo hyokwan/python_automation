@@ -14,7 +14,10 @@ automation
      (예> C2004186, 200802 -> 보고년월을 순차 증가하여 호출해도 무의미 동일 중복데이터만 수신됨)
    - respose.body.totalcount != 0 이면, 세부 데이터가 있음. 데이터는 response.body.detailList1 ~ 5 중에 임의의 리스트에 들어오므로 보고년월을 순차 반복 호출한다.
      (예> C2016001, 201512 는 detailList1에 데이터가 있고, C2016001, 202101는 detailList3에 데이터가 있음)
-
+### 19.selectIoFmMngList.ipynb : 시설물 목록
+   - 총 7913개의 시설물 목록이 존재함. 요청시 pageNo: 1, numOfRows: 1000개로 요청하여 남은 목록 수를 계산하여 pageNo를 증가시키면서 반복 호출한다.
+   - 이 요청으로 시설물번호(fcno) 정보를 획득할 수 있음 (시설물 관련 타 요청의 필수 키 값임)
+   - 황원용 작업
 ### 26.selectIoLcAlRwList.ipynb : 설계VE 목록 조회
    - 이상민 작업
    - 기본키 : serviceKey(인증키), searchSrYr1(기준년도), searchSrYr2(전년도), searchSrYr3(전전년도)
