@@ -17,7 +17,6 @@ automation
 ### 19.selectIoFmMngList.ipynb : 시설물 목록
    - 총 7913개의 시설물 목록이 존재함. 요청시 pageNo: 1, numOfRows: 1000개로 요청하여 남은 목록 수를 계산하여 pageNo를 증가시키면서 반복 호출한다.
    - 이 요청으로 시설물번호(fcno) 정보를 획득할 수 있음 (시설물 관련 타 요청의 필수 키 값임)
-   - 황원용 작업
 ### 26.selectIoLcAlRwList.ipynb : 설계VE 목록 조회
    - 이상민 작업
    - 기본키 : serviceKey(인증키), searchSrYr1(기준년도), searchSrYr2(전년도), searchSrYr3(전전년도)
