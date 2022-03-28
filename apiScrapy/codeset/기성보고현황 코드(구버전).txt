@@ -1,0 +1,77 @@
+import pandas
+import pandas as pd
+from urllib.request import Request, urlopen
+from urllib.parse import urlencode, quote_plus, unquote
+from bs4 import BeautifulSoup
+import requests
+import os
+import warnings
+warnings.filterwarnings('ignore')
+
+# dd = pd.read_excel("C:\\Users\\USER\\Desktop\\(로컬)생기원 실행\\03. 데이터\\건설사업정보시스템\\datalake.xlsx")
+
+SITENAME = "건설사업정보시스템"
+DATANAME= "기성보고 현황"
+SERVICENAME = "selectAcpsRprtList.do"
+SERVICENAME = SERVICENAME.split(".")[0]
+APIKEY = "A6B0FE72-A21C-41FC-9C15-DC432FB84F38"
+OUTPUTPATH="C:\\Users\\USER\\Desktop\\(로컬)생기원 실행\\03. 데이터\\건설사업정보시스템\\output_mk"
+STDENCODING = "utf-8"
+
+
+def createFolder(directory):
+    try:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+    except OSError:
+        print('Error: Creating directory. ' + directory)
+
+
+def aa(a, b):
+    return a+b
+
+###################sptno,sptto추출###################
+targetDir = "C:\\Users\\USER\\Desktop\\(로컬)생기원 실행\\03. 데이터\\건설사업정보시스템\\output_mk\\건설사업정보시스템\\연도별 공사계약 목록\\selectIoCmProjConstYearContractList.csv"
+indata = pd.read_csv(targetDir, encoding="ms949")
+sptNoList = list(indata["sptno"])
+sptToList = list(indata["sptto"])
+print(sptNoList)
+print(sptToList)
+print(len(sptNoList))
+
+
+######################기성보고 현황########################
+SPTNO = 0
+emptyPd = pd.DataFrame()
+
+for SPTNO in range(len(sptNoList)):
+    URL = "https://www.calspia.go.kr/io/openapi/cm/selectAcpsRprtList.do"
+    BASEPARAM={"serviceKey":APIKEY, "sptNo":sptNoList[SPTNO],"sptTo":sptToList[SPTNO], "type":"json"}
+    print("{} data read".format(SPTNO))
+
+    try:
+        queryParams = '?' + urlencode(BASEPARAM)
+        response = requests.get(URL + queryParams)
+        response.encoding = STDENCODING
+        jsondata = response.json()["response"]["body"]["items"]
+
+        if (jsondata == []):
+            print("{} data is empty".format(SPTNO))
+
+        if SPTNO > len(sptNoList):
+            break
+
+    except KeyError:
+        print("no data")
+
+    rowData = pd.DataFrame(jsondata)
+    emptyPd = emptyPd.append(rowData)
+
+
+# DATA SAVE TO THE OUTPUT PATH FOLDER
+outDir = os.path.join(OUTPUTPATH, SITENAME, DATANAME)
+outFile = os.path.join(outDir, SERVICENAME) + ".csv"
+createFolder(outDir)
+emptyPd.columns = emptyPd.columns.str.lower()
+emptyPd.to_csv(outFile, index=False, encoding="ms949")
+print("{} completed".format(DATANAME))
