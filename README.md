@@ -21,7 +21,7 @@ automation
    - 20.selectIoFmSpcfDtl.ipynb를 선 수행하여 시설물번호(fcno) 정보를 획득해야 함
    - 응답의 기본정보는 detail1에, 나머지 상세 정보는 detail2에 들어온다.(교량, 터널, 지하차도 동일)
    - 진행 공정으로 보이는 시설물은 DB 에러로 응답이 온다. (fcno : 0175BC91115A1F7F439D3EFD3512381A)
-   - 황원용 작업
+   - 기본 정보 + (교량|터널|지하차도) 조합에 따라 응답 칼럼이 달라지므로, 결과 DataFrame은 모든 칼럼을 미리 선언하여 모든 조합을 수용가능하도록 선언해야 한다.
 ### 26.selectIoLcAlRwList.ipynb : 설계VE 목록 조회
    - 이상민 작업
    - 기본키 : serviceKey(인증키), searchSrYr1(기준년도), searchSrYr2(전년도), searchSrYr3(전전년도)
