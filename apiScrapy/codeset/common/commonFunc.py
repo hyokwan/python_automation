@@ -37,8 +37,8 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
                 # 비정상 데이터는 response 섹션이 없음
                 if(response.json().get('response') == None):
                     jsondata = response.json()["header"]["resultMsg"]
-                    if( jsondata == "NODATA_ERROR"):
-                        print("{} page is empty".format(i))
+                    if( jsondata != "NORMAL_SERVICE"):
+                        print("SERVER ERROR ",jsondata)
                         break
 
                 jsondata = response.json()["response"]["body"][jsonkey]
