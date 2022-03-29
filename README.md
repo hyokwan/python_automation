@@ -25,7 +25,8 @@ automation
 ### 21.selectIoFmChckDinsPlnList.ipynb : 시설물 점검진단계획 목록
    - 20.selectIoFmSpcfDtl.ipynb를 선 수행하여 시설물번호(fcno) 정보를 획득해야 함
    - 응답의 기본정보는 detail1에, 시설물 점검진단계획목록 정보는 response.body.items에 N건 존재
-   - 상기 N건 : response.body.totlaCount 만큼 존재, 잔여 목록 수를 계산하여 pageNo++하여 반복 호출한다.(사양서에는 pageNo가 없으나 req param에 전달/호출 가능)
+   - 상기 N건 : response.body.totlaCount 만큼 존재, 잔여 목록 수를 계산하여 pageNo++하여 반복 호출한다.
+     * 사양서에는 pageNo가 없으나 req param에 전달/호출 가능
 ### 26.selectIoLcAlRwList.ipynb : 설계VE 목록 조회
    - 이상민 작업
    - 기본키 : serviceKey(인증키), searchSrYr1(기준년도), searchSrYr2(전년도), searchSrYr3(전전년도)
