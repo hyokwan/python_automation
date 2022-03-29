@@ -1,3 +1,4 @@
 # Git ignore file
 .DS_Store
 .ipynb_checkpoints
+apiScrapy/output/건설사업정보시스템/.DS_Store
