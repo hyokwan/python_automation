@@ -2,6 +2,7 @@
 automation
 
 # 수행 순서
+## 공사
 ### 01.ConstructionList.ipynb 실행 : 공사정보 목록
 ### 09.ProjConstYearContractList.ipynb : 연도별 공사계약 목록
 ### 02.AcpsRprtList.ipynb : 기성정보 현황
@@ -14,6 +15,7 @@ automation
      (예> C2004186, 200802 -> 보고년월을 순차 증가하여 호출해도 무의미 동일 중복데이터만 수신됨)
    - respose.body.totalcount != 0 이면, 세부 데이터가 있음. 데이터는 response.body.detailList1 ~ 5 중에 임의의 리스트에 들어오므로 보고년월을 순차 반복 호출한다.
      (예> C2016001, 201512 는 detailList1에 데이터가 있고, C2016001, 202101는 detailList3에 데이터가 있음)
+## 시설물
 ### 19.selectIoFmMngList.ipynb : 시설물 목록
    - 총 7913개의 시설물 목록이 존재함. 요청시 pageNo: 1, numOfRows: 1000개로 요청하여 남은 목록 수를 계산하여 pageNo를 증가시키면서 반복 호출한다.
    - 이 요청으로 시설물번호(fcno) 정보를 획득할 수 있음 (시설물 관련 타 요청의 필수 키 값임)
@@ -24,9 +26,19 @@ automation
    - 기본 정보 + (교량|터널|지하차도) 조합에 따라 응답 칼럼이 달라지므로, 결과 DataFrame은 모든 칼럼을 미리 선언하여 모든 조합을 수용가능하도록 선언해야 한다.
 ### 21.selectIoFmChckDinsPlnList.ipynb : 시설물 점검진단계획 목록
    - 20.selectIoFmSpcfDtl.ipynb를 선 수행하여 시설물번호(fcno) 정보를 획득해야 함
-   - 응답의 기본정보는 detail1에, 시설물 점검진단계획목록 정보는 response.body.items에 N건 존재
+   - 응답의 기본정보는 detail1에, 시설물 점검진단계획목록 정보는 response.body.items에 N건 존재 (기본정보 1 : 시설물 N)
    - 상기 N건 : response.body.totlaCount 만큼 존재, 잔여 목록 수를 계산하여 pageNo++하여 반복 호출한다.
      * 사양서에는 pageNo가 없으나 req param에 전달/호출 가능
+### 22.selectIoFmChckDinsHstList.ipynb : 시설물 점검진단이력 목록
+   - 20.selectIoFmSpcfDtl.ipynb를 선 수행하여 시설물번호(fcno) 정보를 획득해야 함
+   - 응답의 기본정보는 detail1에, 시설물 점검진단계획목록 정보는 response.body.items에 N건 존재 (기본정보 1 : 시설물 N)
+   - 상기 N건 : response.body.totlaCount 만큼 존재, 잔여 목록 수를 계산하여 pageNo++하여 반복 호출한다.
+## 보상
+
+## 인허가
+
+## 기타
+
 ### 26.selectIoLcAlRwList.ipynb : 설계VE 목록 조회
    - 이상민 작업
    - 기본키 : serviceKey(인증키), searchSrYr1(기준년도), searchSrYr2(전년도), searchSrYr3(전전년도)
