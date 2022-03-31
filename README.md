@@ -69,7 +69,9 @@ automation
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
 ### 37.selectIoLcPblBzByTngRwList.ipynb : 공공용지 취득실적-공공사업의 물건보상액 기준 실적 현황
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-
+### 38.selectIoLcBlnOrByRwList.ipynb : 공공용지 취득실적-소속 기관별 취득면적 및 보상액 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+   - response.body.items에 데이터가 N건 존재함
 ## 인허가
 
 ## 기타
