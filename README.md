@@ -65,7 +65,9 @@ automation
    - response.body.items에 데이터가 N건 존재함
 ### 35.selectIoLcAcqMtdByRwList.ipynb : 공공용지 취득실적-취득방법별 면적 및 보상액 기준 실적 현황
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-## 인허가
+### 36.selectIoLcLnctStsList.ipynb : 공공용지 취득실적 (지목별 실적 현황)
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+
 ## 인허가
 
 ## 기타
