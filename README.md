@@ -47,6 +47,10 @@ automation
 ### 27.selectIoLcBzByAreAndRwList.ipynb : 공공용지 취득실적-사업별 면적 및 보상액 기준 실적 현황
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
    - response.body.items에 데이터가 N건 존재함
+### 28.selectIoLcCnpByAreAndRwList.ipynb : 공공용지 취득실적-시도별 면적 및 보상액 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+   - response.body.items에 데이터가 N건 존재함
+## 인허가
 ## 인허가
 
 ## 기타
