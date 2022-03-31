@@ -73,6 +73,9 @@ automation
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
    - response.body.items에 데이터가 N건 존재함
 ## 인허가
+### 39.selectIoPmPermitList.ipynb : 도로점용허가내용 목록
+   - 검색 시작일(searchEdBgDt) 20010101 부터 시작 (해당일 이전 데이터는 없음)
+   - 검색 종료일을 현재 날짜로 하면 응답이 상당히 지연되므로 1년 단위로 1000건씩 page 요청해야 함 (sortField: edDt, sortOrder: ASC)
 
 ## 기타
 
