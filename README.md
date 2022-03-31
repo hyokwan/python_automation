@@ -15,7 +15,7 @@ automation
      (예> C2004186, 200802 -> 보고년월을 순차 증가하여 호출해도 무의미 동일 중복데이터만 수신됨)
    - respose.body.totalcount != 0 이면, 세부 데이터가 있음. 데이터는 response.body.detailList1 ~ 5 중에 임의의 리스트에 들어오므로 보고년월을 순차 반복 호출한다.
      (예> C2016001, 201512 는 detailList1에 데이터가 있고, C2016001, 202101는 detailList3에 데이터가 있음)
-## 시설물
+## 시설물 (구현 완료)
 ### 19.selectIoFmMngList.ipynb : 시설물 목록
    - 총 7913개의 시설물 목록이 존재함. 요청시 pageNo: 1, numOfRows: 1000개로 요청하여 남은 목록 수를 계산하여 pageNo를 증가시키면서 반복 호출한다.
    - 이 요청으로 시설물번호(fcno) 정보를 획득할 수 있음 (시설물 관련 타 요청의 필수 키 값임)
@@ -39,6 +39,8 @@ automation
    - 상기 N건 : response.body.totlaCount 만큼 존재, 잔여 목록 수를 계산하여 pageNo++하여 반복 호출한다.
 ### 24.selectIoFmCwkRegsList.ipynb : 시설물 유지보수대장 목록
    - 검색 결과 나오지 않음(검색조건인 공사명에 도로,교량,국토,기타,램프,교각,터널 등의 질의에도 검색결과가 나오지 않음)
+### 24.selectIoFmFctStsList.ipynb : 도로시설물 관리현황 정보
+   - response.body.items에 9274건의 정보를 리턴한다. 
 ## 보상
 
 ## 인허가
