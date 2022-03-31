@@ -15,7 +15,7 @@ automation
      (예> C2004186, 200802 -> 보고년월을 순차 증가하여 호출해도 무의미 동일 중복데이터만 수신됨)
    - respose.body.totalcount != 0 이면, 세부 데이터가 있음. 데이터는 response.body.detailList1 ~ 5 중에 임의의 리스트에 들어오므로 보고년월을 순차 반복 호출한다.
      (예> C2016001, 201512 는 detailList1에 데이터가 있고, C2016001, 202101는 detailList3에 데이터가 있음)
-## 시설물
+## 시설물 (구현 완료)
 ### 19.selectIoFmMngList.ipynb : 시설물 목록
    - 총 7913개의 시설물 목록이 존재함. 요청시 pageNo: 1, numOfRows: 1000개로 요청하여 남은 목록 수를 계산하여 pageNo를 증가시키면서 반복 호출한다.
    - 이 요청으로 시설물번호(fcno) 정보를 획득할 수 있음 (시설물 관련 타 요청의 필수 키 값임)
@@ -37,10 +37,48 @@ automation
    - 20.selectIoFmSpcfDtl.ipynb를 선 수행하여 시설물번호(fcno) 정보를 획득해야 함
    - 응답의 기본정보는 detail1에, 시설물 점검진단계획목록 정보는 response.body.items에 N건 존재 (기본정보 1 : 시설물 N)
    - 상기 N건 : response.body.totlaCount 만큼 존재, 잔여 목록 수를 계산하여 pageNo++하여 반복 호출한다.
-## 보상
-
+### 24.selectIoFmCwkRegsList.ipynb : 시설물 유지보수대장 목록
+   - 검색 결과 나오지 않음(검색조건인 공사명에 도로,교량,국토,기타,램프,교각,터널 등의 질의에도 검색결과가 나오지 않음)
+### 25.selectIoFmFctStsList.ipynb : 도로시설물 관리현황 정보
+   - response.body.items에 9274건의 정보를 리턴한다. 
+## 보상 (구현 완료)
+### 26.selectIoLcAlRwList.ipynb : 공공용지 취득실적-전체보상액 규모 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 27.selectIoLcBzByAreAndRwList.ipynb : 공공용지 취득실적-사업별 면적 및 보상액 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+   - response.body.items에 데이터가 N건 존재함
+### 28.selectIoLcCnpByAreAndRwList.ipynb : 공공용지 취득실적-시도별 면적 및 보상액 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+   - response.body.items에 데이터가 N건 존재함
+### 29.selectIoLcBndStsList.ipynb : 공공용지 취득실적(채권보상실적)
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 30.selectIoLcRldAndItcnStsList.ipynb : 공공용지 취득실적(잔여지 및 간접보상)
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 31.selectIoLcBrpAndEvnStsList.ipynb : 공공용지 취득실적(환매권 행사)
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 32.selectIoLcLndByStsList.ipynb : 공공용지 취득실적(부동산소유사실 확인서)
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 33.selectIoLcSlaRwStsList.ipynb : 공공용지 취득실적(대토보상)
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 34.selectIoLcOrByAreAndRwList.ipynb : 공공용지 취득실적-기관별 취득면적 및 보상액 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+   - response.body.items에 데이터가 N건 존재함
+### 35.selectIoLcAcqMtdByRwList.ipynb : 공공용지 취득실적-취득방법별 면적 및 보상액 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 36.selectIoLcLnctStsList.ipynb : 공공용지 취득실적 (지목별 실적 현황)
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 37.selectIoLcPblBzByTngRwList.ipynb : 공공용지 취득실적-공공사업의 물건보상액 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 38.selectIoLcBlnOrByRwList.ipynb : 공공용지 취득실적-소속 기관별 취득면적 및 보상액 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+   - response.body.items에 데이터가 N건 존재함
 ## 인허가
-
+### 39.selectIoPmPermitList.ipynb : 도로점용허가내용 목록
+   - 검색 시작일(searchEdBgDt) 20010101 부터 시작 (해당일 이전 데이터는 없음)
+   - 검색 종료일을 현재 날짜로 하면 응답이 상당히 지연되므로 1년 단위로 1000건씩 page 요청해야 함 (sortField: edDt, sortOrder: ASC)
+   - 
+   - [TODO] "품질검사성적서 등록 목록"의 "시공자" 필수 파라미터는 "건설자재 품질검사 등록정보" API로 부터 획득 
+   - [TODO] "품질검사성적서 상세정보 현황"의 "시험성적서일련번호" 필수 파라미터는 "품질검사성적서 등록 목록" API로 부터 획득
 ## 기타
 
 ### 26.selectIoLcAlRwList.ipynb : 설계VE 목록 조회
