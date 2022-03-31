@@ -54,6 +54,8 @@ automation
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
 ### 30.selectIoLcRldAndItcnStsList.ipynb : 공공용지 취득실적(잔여지 및 간접보상)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
+### 31.selectIoLcBrpAndEvnStsList.ipynb : 공공용지 취득실적(환매권 행사)
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
 ## 인허가
 ## 인허가
 
