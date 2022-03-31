@@ -39,10 +39,11 @@ automation
    - 상기 N건 : response.body.totlaCount 만큼 존재, 잔여 목록 수를 계산하여 pageNo++하여 반복 호출한다.
 ### 24.selectIoFmCwkRegsList.ipynb : 시설물 유지보수대장 목록
    - 검색 결과 나오지 않음(검색조건인 공사명에 도로,교량,국토,기타,램프,교각,터널 등의 질의에도 검색결과가 나오지 않음)
-### 24.selectIoFmFctStsList.ipynb : 도로시설물 관리현황 정보
+### 25.selectIoFmFctStsList.ipynb : 도로시설물 관리현황 정보
    - response.body.items에 9274건의 정보를 리턴한다. 
 ## 보상
-
+### 26.selectIoLcAlRwList.ipynb : 공공용지 취득실적-전체보상액 규모 기준 실적 현황
+   - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
 ## 인허가
 
 ## 기타
