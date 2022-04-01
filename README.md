@@ -83,9 +83,11 @@ automation
    - 44.selectIoPmQtlTsitStsList.ipynb를 선 수행하여 시공자(cstrNm) 정보를 획득해야 함
    - 검색 시작일(year) 2001 부터 시작 (해당일 이전 데이터는 없음)
    - 검색 종료일을 올해 날짜로 하면 응답이 상당히 지연되므로 1년 단위로 1000건씩 page 요청해야 함 (sortField: tstBgDt, sortOrder: ASC)
-   - 
-   - [TODO] "품질검사성적서 등록 목록"의 "시공자" 필수 파라미터는 "건설자재 품질검사 등록정보" API로 부터 획득 
-   - [TODO] "품질검사성적서 상세정보 현황"의 "시험성적서일련번호" 필수 파라미터는 "품질검사성적서 등록 목록" API로 부터 획득
+### 41.selectIoPmQtscView.ipynb : 품질검사성적서 상세정보 현황
+- [TODO] "품질검사성적서 상세정보 현황"의 "시험성적서일련번호" 필수 파라미터는 "품질검사성적서 등록 목록" API로 부터 획득
+### 42.selectIoApiPmQtscList.ipynb : 품질검사전문기관 목록
+   - 목록 건수가 00건으로 한 번만 요청하면 됨
+   
 ## 기타
 
 ### 26.selectIoLcAlRwList.ipynb : 설계VE 목록 조회
