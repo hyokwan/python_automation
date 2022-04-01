@@ -87,6 +87,8 @@ automation
 - [TODO] "품질검사성적서 상세정보 현황"의 "시험성적서일련번호" 필수 파라미터는 "품질검사성적서 등록 목록" API로 부터 획득
 ### 42.selectIoApiPmQtscList.ipynb : 품질검사전문기관 목록
    - 목록 건수가 540건으로 한 번만 요청하면 됨
+### 43.selectIoApiPmQtscList.ipynb : 품질검사전문기관 목록
+   - 42.selectIoApiPmQtscList.ipynb를 선 수행하여 등록일련번호(rgsSeq) 정보를 획득해야 함
    
 ## 기타
 
