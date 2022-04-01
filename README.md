@@ -92,3 +92,16 @@ automation
    - 김미경 작업
    - '설계VE 상세 검토조직 조회' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
    - 48.selectIoPtVeBusinessList.ipynb 선 수행 필요
+
+# 조달청
+
+## 입찰공고정보서비스
+### 22.getBidPblancListInfoCnstwk.ipynb : 입찰공고목록 정보에 대한 공사조회
+   - 이상민 작업
+   - 기본키 : numOfRows(한 페이지 결과 수), ServiceKey(서비스키), inqryDiv(조회구분), inqryBgnDt(조회시작일시), inqryEndDt(조회종료일시), pageNo(페이지 번호)
+   - 특이사항 : 없음
+   
+### 23.getBidPblancListInfoCnstwk.ipynb : 입찰공고목록 정보에 대한 용역조회
+   - 이상민 작업
+   - 기본키 : numOfRows(한 페이지 결과 수), ServiceKey(서비스키), inqryDiv(조회구분), inqryBgnDt(조회시작일시), inqryEndDt(조회종료일시), pageNo(페이지 번호)
+   - 특이사항 : 없음
