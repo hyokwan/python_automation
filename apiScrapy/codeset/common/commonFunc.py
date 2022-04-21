@@ -100,7 +100,12 @@ def savedata(inDf, inSiteName, inDataName, inServiceName, mode=2):
     else:
         inDf.to_csv(outFile, index=False, encoding="ms949")
     print("{} save compled".format(inDataName) )
-  
+    
+### 함수정의: 파라미터 저장함수
+###   - paramData: 저장된 데이터에 적용된 파라미터 정보 (org + new)
+###   - inSiteName: 메타정보의 "자료대상" (예: 건설사업정보시스템)
+###   - inDataName: 메타정보의 "자료명" (예: 공사정보 목록)
+###   - inServiceName: 메타정보의 "기본키" (예: serviceKey + Format)    
 def saveparam(paramData, inSiteName, inDataName, inServiceName):
     # DATA SAVE TO THE OUTPUT PATH FOLDER
     outDir = os.path.join(OUTPUTPATH,inSiteName,inDataName)
@@ -109,7 +114,11 @@ def saveparam(paramData, inSiteName, inDataName, inServiceName):
     ### 피클 파일 저장하기 (바이너리) ###
     with open(outPickle,"wb") as fw:
         pickle.dump(paramData,fw)
- 
+        
+### 함수정의: 파라미터 불러오는 
+###   - inSiteName: 메타정보의 "자료대상" (예: 건설사업정보시스템)
+###   - inDataName: 메타정보의 "자료명" (예: 공사정보 목록)
+###   - inServiceName: 메타정보의 "기본키" (예: serviceKey + Format)   
 def loadparam(inSiteName, inDataName, inServiceName):
     # DATA SAVE TO THE OUTPUT PATH FOLDER
     outDir = os.path.join(OUTPUTPATH,inSiteName,inDataName)
@@ -120,6 +129,10 @@ def loadparam(inSiteName, inDataName, inServiceName):
         data = pickle.load(fr)
     return data
 
+### 함수정의: 저장데이터 불러오는 함수
+###   - inSiteName: 메타정보의 "자료대상" (예: 건설사업정보시스템)
+###   - inDataName: 메타정보의 "자료명" (예: 공사정보 목록)
+###   - inServiceName: 메타정보의 "기본키" (예: serviceKey + Format)   
 def loaddata(inSiteName, inDataName, inServiceName):
     # DATA SAVE TO THE OUTPUT PATH FOLDER
     outDir = os.path.join(OUTPUTPATH,inSiteName,inDataName)
