@@ -25,7 +25,7 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
         emptyPd = pd.DataFrame()
         i=1
         while True:
-            time.sleep(1.2)
+            time.sleep(1)
             print("{} page scraping start".format(i))
             
             if(inPageYn==1):
