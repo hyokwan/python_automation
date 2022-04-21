@@ -6,6 +6,8 @@ import pandas as pd
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode, quote_plus, unquote
 import os
+import time
+import pickle
 
 OUTPUTPATH="../output"
 STDENCODING="utf-8"
@@ -23,6 +25,7 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
         emptyPd = pd.DataFrame()
         i=1
         while True:
+            time.sleep(1)
             print("{} page scraping start".format(i))
             
             if(inPageYn==1):
@@ -87,14 +90,45 @@ def createFolder(directory):
 ###   - inDataName: 메타정보의 "자료명" (예: 공사정보 목록)
 ###   - inServiceName: 메타정보의 "기본키" (예: serviceKey + Format)
 
-def savedata(inDf, inSiteName, inDataName, inServiceName):
+def savedata(inDf, inSiteName, inDataName, inServiceName, mode=2):
     # DATA SAVE TO THE OUTPUT PATH FOLDER
     outDir = os.path.join(OUTPUTPATH,inSiteName,inDataName)
     outFile = os.path.join( outDir, inServiceName) + ".csv"
     createFolder(outDir)
-    inDf.to_csv(outFile, index=False, encoding="ms949")
+    if mode==1:
+        inDf.to_csv(outFile, index=False, encoding="ms949",mode="a", header=False)
+    else:
+        inDf.to_csv(outFile, index=False, encoding="ms949")
     print("{} save compled".format(inDataName) )
+  
+def saveparam(paramData, inSiteName, inDataName, inServiceName):
+    # DATA SAVE TO THE OUTPUT PATH FOLDER
+    outDir = os.path.join(OUTPUTPATH,inSiteName,inDataName)
+    outPickle = os.path.join( outDir, inServiceName) + ".pickle"
     
+    ### 피클 파일 저장하기 (바이너리) ###
+    with open(outPickle,"wb") as fw:
+        pickle.dump(paramData,fw)
+ 
+def loadparam(inSiteName, inDataName, inServiceName):
+    # DATA SAVE TO THE OUTPUT PATH FOLDER
+    outDir = os.path.join(OUTPUTPATH,inSiteName,inDataName)
+    outPickle = os.path.join( outDir, inServiceName) + ".pickle"
+    
+    ### 피클 파일 불러오기 (바이너리) ###
+    with open(outPickle,"rb") as fr:
+        data = pickle.load(fr)
+    return data
+
+def loaddata(inSiteName, inDataName, inServiceName):
+    # DATA SAVE TO THE OUTPUT PATH FOLDER
+    outDir = os.path.join(OUTPUTPATH,inSiteName,inDataName)
+    outData = os.path.join( outDir, inServiceName) + ".csv"
+    
+    ### 피클 파일 불러오기 (바이너리) ###
+    data = pd.read_csv(outData)
+    return data
+
 # Calcuate Month Duration from given 2 Parameters.
 # d1, d2 : datetime format 
 # d1 >= d2
