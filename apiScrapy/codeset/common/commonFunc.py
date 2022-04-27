@@ -70,7 +70,7 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
         emptyPd.columns = emptyPd.columns.str.lower()
         emptyPd.shape
         print("dataframe{}, param:{} rows: {} completed".format(inDataName,inParam, emptyPd.shape[1] )     )
-        return emptyPd       
+        return [emptyPd,i]       
     except Exception as e:
             print(e)     
 ### 함수정의: 사이트 메타정보를 받아 데이터를 수집 후 수집결과를 반환하는 함수 (★★TBD 추후 HDFS경로 및 메타정보로 컬럼 추가 필요!!★★)
@@ -115,7 +115,7 @@ def saveparam(paramData, inSiteName, inDataName, inServiceName):
     with open(outPickle,"wb") as fw:
         pickle.dump(paramData,fw)
         
-### 함수정의: 파라미터 불러오는 
+### 함수정의: 파라미터 불러오는 함수
 ###   - inSiteName: 메타정보의 "자료대상" (예: 건설사업정보시스템)
 ###   - inDataName: 메타정보의 "자료명" (예: 공사정보 목록)
 ###   - inServiceName: 메타정보의 "기본키" (예: serviceKey + Format)   
