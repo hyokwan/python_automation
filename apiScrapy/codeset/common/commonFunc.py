@@ -25,7 +25,8 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
         emptyPd = pd.DataFrame()
         i=1
         while True:
-            time.sleep(1)
+            if inType == "jsonabnormal":
+                time.sleep(1)
             print("{} page scraping start".format(i))
             
             if(inPageYn==1):
@@ -35,7 +36,7 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
             response = requests.get(inUrl+queryParams)
             response.encoding=STDENCODING
             rowData = pd.DataFrame()
-            print(rowData)
+            
             if(inType=="jsonabnormal"):
                 # 비정상 데이터는 response 섹션이 없음
                 if(response.json().get('response') == None):
@@ -56,7 +57,60 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
                 rowData = pd.DataFrame(jsondata)
             elif(inType=="jsonnormal"):
                 # 공공데이터 포털등 일반 json 형태데이터인경우
-                rowData = pd.read_json(inUrl+queryParams)
+                try:
+                    jsondata = response.json()
+                except Exception as e:
+                    if e.args[0] == 'Expecting value: line 1 column 1 (char 0)':
+                        xmlobj = BeautifulSoup(response.text,"lxml-xml")
+                        errorCode = xmlobj.find("returnReasonCode").text
+                        raise Exception(errorCode)
+                    else:
+                        print(e)
+                        break
+                
+                respCode = jsondata["response"]["header"]["resultCode"]
+                
+                if respCode == "00" and jsondata["response"]["body"]["totalCount"] != 0: 
+                    if jsonkey == "items":
+                        rowData = pd.DataFrame(jsondata["response"]["body"][jsonkey])
+                    elif jsonkey == "item":
+                        rowData = pd.DataFrame(jsondata["response"]["body"]["items"][jsonkey])
+                else:
+                    print(respCode)
+                    break
+            elif inType == "xml":
+                # xml 형태 데이터인 경우
+                try:
+                    xmlobj = BeautifulSoup(response.text, "lxml-xml")
+                except:
+                    time.sleep(5)
+                    response = requests.get(inUrl + queryParams)
+                    xmlobj = BeautifulSoup(response.text, "lxml-xml")
+
+                if xmlobj.find("totalCount").text == '0' or int(xmlobj.find("totalCount").text) <= (i-1) * 999:
+                    print("No Data")
+                    break
+                rowDataList = xmlobj.find_all(jsonkey)
+
+                colList = [each.name for each in rowDataList[0].find_all()]
+
+                totalList = []
+                for eachList in rowDataList:
+                    rowDict = {}
+                    eachData = eachList.find_all()
+                    for each in eachData:
+                        rowDict[each.name] = each.text
+                    dupCheck = set(colList) - set([each.name for each in eachData])
+                    if len(dupCheck) != 0:
+                        for eachCol in dupCheck:
+                            rowDict[eachCol] = ""
+                    totalList.append(rowDict)
+
+                rowData = pd.DataFrame(totalList)
+                
+                if rowData.empty:
+                    print("{} page is empty".format(i))
+                    break
             else:
                 rowData = pd.read_json(inUrl+queryParams)          
                 
@@ -66,11 +120,11 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
                 print("{} no pageNo".format(inPageYn))
                 break
             i = i+1
-
-        emptyPd.columns = emptyPd.columns.str.lower()
+        if inType=="jsonabnormal":
+            emptyPd.columns = emptyPd.columns.str.lower()
         emptyPd.shape
         print("dataframe{}, param:{} rows: {} completed".format(inDataName,inParam, emptyPd.shape[1] )     )
-        return emptyPd       
+        return [emptyPd,i]       
     except Exception as e:
             print(e)     
 ### 함수정의: 사이트 메타정보를 받아 데이터를 수집 후 수집결과를 반환하는 함수 (★★TBD 추후 HDFS경로 및 메타정보로 컬럼 추가 필요!!★★)
@@ -92,6 +146,9 @@ def createFolder(directory):
 
 def savedata(inDf, inSiteName, inDataName, inServiceName, mode=2):
     # DATA SAVE TO THE OUTPUT PATH FOLDER
+    global OUTPUTPATH
+    if inSiteName == "pps" or inSiteName == "kostat":
+        OUTPUTPATH = "../../output"
     outDir = os.path.join(OUTPUTPATH,inSiteName,inDataName)
     outFile = os.path.join( outDir, inServiceName) + ".csv"
     createFolder(outDir)
@@ -115,7 +172,7 @@ def saveparam(paramData, inSiteName, inDataName, inServiceName):
     with open(outPickle,"wb") as fw:
         pickle.dump(paramData,fw)
         
-### 함수정의: 파라미터 불러오는 
+### 함수정의: 파라미터 불러오는 함수
 ###   - inSiteName: 메타정보의 "자료대상" (예: 건설사업정보시스템)
 ###   - inDataName: 메타정보의 "자료명" (예: 공사정보 목록)
 ###   - inServiceName: 메타정보의 "기본키" (예: serviceKey + Format)   
