@@ -103,8 +103,8 @@ automation
    - 김미경 작업
    - '설계VE 상세 검토조직 조회' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
    - 48.selectIoPtVeBusinessList.ipynb 선 수행 필요
-
-  - (김효관 작업) 55.설계VE 계약정보
+ - (김효관 작업) 55.건설공사 원가절감사례 상세 조회
+  - (김효관 작업) 56.설계VE 계약정보
 
 ## 입찰공고정보서비스
 ### 22.getBidPblancListInfoCnstwk.ipynb : 입찰공고목록 정보에 대한 공사조회
