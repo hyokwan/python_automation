@@ -146,6 +146,9 @@ def createFolder(directory):
 
 def savedata(inDf, inSiteName, inDataName, inServiceName, mode=2):
     # DATA SAVE TO THE OUTPUT PATH FOLDER
+    global OUTPUTPATH
+    if inSiteName == "pps" or inSiteName == "kostat":
+        OUTPUTPATH = "../../output"
     outDir = os.path.join(OUTPUTPATH,inSiteName,inDataName)
     outFile = os.path.join( outDir, inServiceName) + ".csv"
     createFolder(outDir)
