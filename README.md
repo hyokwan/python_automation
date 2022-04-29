@@ -79,6 +79,7 @@ automation
 ### 44.selectIoPmQtlTsitStsList.ipynb : 건설자재 품질검사 등록정보 (완료)
    - 검색 시작일(year) 2001 부터 시작 (해당일 이전 데이터는 없음)
    - 검색 종료일을 올해 날짜로 하면 응답이 상당히 지연되므로 1년 단위로 1000건씩 page 요청해야 함 (sortField: tstBgDt, sortOrder: ASC)
+   - 2022년까지 수집 완료
 ### 40.selectIoPmQtscList.ipynb : 품질검사성적서 등록 목록 (-)
    - 44.selectIoPmQtlTsitStsList.ipynb를 선 수행하여 시공자(cstrNm) 정보를 획득해야 함
    - 검색 시작일(year) 2001 부터 시작 (해당일 이전 데이터는 없음)
