@@ -47,29 +47,29 @@ automation
 ### 27.selectIoLcBzByAreAndRwList.ipynb : 공공용지 취득실적-사업별 면적 및 보상액 기준 실적 현황 (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
    - response.body.items에 데이터가 N건 존재함
-### 28.selectIoLcCnpByAreAndRwList.ipynb : 공공용지 취득실적-시도별 면적 및 보상액 기준 실적 현황
+### 28.selectIoLcCnpByAreAndRwList.ipynb : 공공용지 취득실적-시도별 면적 및 보상액 기준 실적 현황 (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
    - response.body.items에 데이터가 N건 존재함
-### 29.selectIoLcBndStsList.ipynb : 공공용지 취득실적(채권보상실적)
+### 29.selectIoLcBndStsList.ipynb : 공공용지 취득실적(채권보상실적) (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-### 30.selectIoLcRldAndItcnStsList.ipynb : 공공용지 취득실적(잔여지 및 간접보상)
+### 30.selectIoLcRldAndItcnStsList.ipynb : 공공용지 취득실적(잔여지 및 간접보상) (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-### 31.selectIoLcBrpAndEvnStsList.ipynb : 공공용지 취득실적(환매권 행사)
+### 31.selectIoLcBrpAndEvnStsList.ipynb : 공공용지 취득실적(환매권 행사) (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-### 32.selectIoLcLndByStsList.ipynb : 공공용지 취득실적(부동산소유사실 확인서)
+### 32.selectIoLcLndByStsList.ipynb : 공공용지 취득실적(부동산소유사실 확인서) (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-### 33.selectIoLcSlaRwStsList.ipynb : 공공용지 취득실적(대토보상)
+### 33.selectIoLcSlaRwStsList.ipynb : 공공용지 취득실적(대토보상) (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-### 34.selectIoLcOrByAreAndRwList.ipynb : 공공용지 취득실적-기관별 취득면적 및 보상액 기준 실적 현황
+### 34.selectIoLcOrByAreAndRwList.ipynb : 공공용지 취득실적-기관별 취득면적 및 보상액 기준 실적 현황 (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
    - response.body.items에 데이터가 N건 존재함
-### 35.selectIoLcAcqMtdByRwList.ipynb : 공공용지 취득실적-취득방법별 면적 및 보상액 기준 실적 현황
+### 35.selectIoLcAcqMtdByRwList.ipynb : 공공용지 취득실적-취득방법별 면적 및 보상액 기준 실적 현황 (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-### 36.selectIoLcLnctStsList.ipynb : 공공용지 취득실적 (지목별 실적 현황)
+### 36.selectIoLcLnctStsList.ipynb : 공공용지 취득실적 (지목별 실적 현황) (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-### 37.selectIoLcPblBzByTngRwList.ipynb : 공공용지 취득실적-공공사업의 물건보상액 기준 실적 현황
+### 37.selectIoLcPblBzByTngRwList.ipynb : 공공용지 취득실적-공공사업의 물건보상액 기준 실적 현황 (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
-### 38.selectIoLcBlnOrByRwList.ipynb : 공공용지 취득실적-소속 기관별 취득면적 및 보상액 기준 실적 현황
+### 38.selectIoLcBlnOrByRwList.ipynb : 공공용지 취득실적-소속 기관별 취득면적 및 보상액 기준 실적 현황 (완료)
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
    - response.body.items에 데이터가 N건 존재함
 ## 인허가
