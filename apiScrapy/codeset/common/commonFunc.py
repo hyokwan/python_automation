@@ -76,7 +76,6 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, inAP
                 respCode = jsondata["response"]["header"]["resultCode"]
                 
                 if respCode == "00" and jsondata["response"]["body"]["totalCount"] != 0: 
-                    print("total count: "+jsondata["response"]["body"]["totalCount"])
                     if jsonkey == "items":
                         rowData = pd.DataFrame(jsondata["response"]["body"][jsonkey])
                     elif jsonkey == "item":
