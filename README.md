@@ -37,7 +37,7 @@ automation
    - 20.selectIoFmSpcfDtl.ipynb를 선 수행하여 시설물번호(fcno) 정보를 획득해야 함
    - 응답의 기본정보는 detail1에, 시설물 점검진단계획목록 정보는 response.body.items에 N건 존재 (기본정보 1 : 시설물 N)
    - 상기 N건 : response.body.totlaCount 만큼 존재, 잔여 목록 수를 계산하여 pageNo++하여 반복 호출한다.
-### 24.selectIoFmCwkRegsList.ipynb : 시설물 유지보수대장 목록
+### 24.selectIoFmCwkRegsList.ipynb : 시설물 유지보수대장 목록 (완료)
    - 검색 결과 나오지 않음(검색조건인 공사명에 도로,교량,국토,기타,램프,교각,터널 등의 질의에도 검색결과가 나오지 않음)
 ### 25.selectIoFmFctStsList.ipynb : 도로시설물 관리현황 정보
    - response.body.items에 9274건의 정보를 리턴한다. 
