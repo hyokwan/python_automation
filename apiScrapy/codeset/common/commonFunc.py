@@ -58,6 +58,8 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, inAP
                     jsondata["index"]=[0]
 
                 rowData = pd.DataFrame(jsondata)
+                if(i==1):
+                    print("totalCount "+str(response.json()["response"]["body"]["totalCount"]))
             elif(inType=="jsonnormal"):
                 # 공공데이터 포털등 일반 json 형태데이터인경우
                 try:
@@ -74,6 +76,7 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, inAP
                 respCode = jsondata["response"]["header"]["resultCode"]
                 
                 if respCode == "00" and jsondata["response"]["body"]["totalCount"] != 0: 
+                    print("total count: "+jsondata["response"]["body"]["totalCount"])
                     if jsonkey == "items":
                         rowData = pd.DataFrame(jsondata["response"]["body"][jsonkey])
                     elif jsonkey == "item":
