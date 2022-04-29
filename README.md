@@ -73,21 +73,22 @@ automation
    - 기준년도(searchSrYr1) 2007년 부터 데이터가 존재함
    - response.body.items에 데이터가 N건 존재함
 ## 인허가
-### 39.selectIoPmPermitList.ipynb : 도로점용허가내용 목록
+### 39.selectIoPmPermitList.ipynb : 도로점용허가내용 목록 (완료)
    - 검색 시작일(searchEdBgDt) 20010101 부터 시작 (해당일 이전 데이터는 없음)
    - 검색 종료일을 현재 날짜로 하면 응답이 상당히 지연되므로 1년 단위로 1000건씩 page 요청해야 함 (sortField: edDt, sortOrder: ASC)
-### 44.selectIoPmQtlTsitStsList.ipynb : 건설자재 품질검사 등록정보
+### 44.selectIoPmQtlTsitStsList.ipynb : 건설자재 품질검사 등록정보 (완료)
    - 검색 시작일(year) 2001 부터 시작 (해당일 이전 데이터는 없음)
    - 검색 종료일을 올해 날짜로 하면 응답이 상당히 지연되므로 1년 단위로 1000건씩 page 요청해야 함 (sortField: tstBgDt, sortOrder: ASC)
-### 40.selectIoPmQtscList.ipynb : 품질검사성적서 등록 목록
+### 40.selectIoPmQtscList.ipynb : 품질검사성적서 등록 목록 (-)
    - 44.selectIoPmQtlTsitStsList.ipynb를 선 수행하여 시공자(cstrNm) 정보를 획득해야 함
    - 검색 시작일(year) 2001 부터 시작 (해당일 이전 데이터는 없음)
    - 검색 종료일을 올해 날짜로 하면 응답이 상당히 지연되므로 1년 단위로 1000건씩 page 요청해야 함 (sortField: tstBgDt, sortOrder: ASC)
-### 41.selectIoPmQtscView.ipynb : 품질검사성적서 상세정보 현황
-- [TODO] "품질검사성적서 상세정보 현황"의 "시험성적서일련번호" 필수 파라미터는 "품질검사성적서 등록 목록" API로 부터 획득
-### 42.selectIoApiPmQtscList.ipynb : 품질검사전문기관 목록
+### 41.selectIoPmQtscView.ipynb : 품질검사성적서 상세정보 현황 (-)
+   - "품질검사성적서 상세정보 현황"의 "시험성적서일련번호" 필수 파라미터는 "품질검사성적서 등록 목록" API로 부터 획득
+   - 40번 품질검사성적서가 대용량(수십GB 추정)으로 시험성적서 일련번호를 모두 파악 불가함
+### 42.selectIoApiPmQtscList.ipynb : 품질검사전문기관 목록 (완료)
    - 목록 건수가 540건으로 한 번만 요청하면 됨
-### 43.selectIoApiPmQtscList.ipynb : 품질검사전문기관 목록
+### 43.selectIoApiPmQtscList.ipynb : 품질검사전문기관 목록 (완료)
    - 42.selectIoApiPmQtscList.ipynb를 선 수행하여 등록일련번호(rgsSeq) 정보를 획득해야 함
    
 ## 기타
