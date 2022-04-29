@@ -20,15 +20,18 @@ STDENCODING="utf-8"
 ###   - inParam: 메타정보의 "파라미터 정보" (예: 페이지 파라미터 존재 시 1 값")
 ###   - inPageYn: 메타정보의 "페이지 정보" (예: 페이지 파라미터 존재 시 1 값")
 ### 함수정의: 사이트 메타정보를 받아 데이터를 수집 후 수집결과를 반환하는 함수
-def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, jsonkey="items", dummy=0, inType="jsonabnormal"):
+def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, inAPIKey, inApiCall, jsonkey="items", dummy=0, inType="jsonabnormal", prePageNo=1):
     try:
         emptyPd = pd.DataFrame()
-        i=1
+        i=prePageNo
+        inAPIKeyLen = len(inAPIKey)
         while True:
+            inApiCall = inApiCall + 1
             if inType == "jsonabnormal":
                 time.sleep(1)
-            print("{} page scraping start".format(i))
-            
+                
+            inParam["serviceKey"] = inAPIKey[inApiCall%inAPIKeyLen]
+            print("{} page scraping start apicall iter: {} / used {}".format(i,inApiCall,inParam["serviceKey"]))
             if(inPageYn==1):
                 inParam["pageNo"] = i
             
@@ -124,7 +127,7 @@ def scrapy(inUrl, inSiteName, inDataName, inServiceName, inParam, inPageYn, json
             emptyPd.columns = emptyPd.columns.str.lower()
         emptyPd.shape
         print("dataframe{}, param:{} rows: {} completed".format(inDataName,inParam, emptyPd.shape[1] )     )
-        return [emptyPd,i]       
+        return [emptyPd,i,inApiCall]       
     except Exception as e:
             print(e)     
 ### 함수정의: 사이트 메타정보를 받아 데이터를 수집 후 수집결과를 반환하는 함수 (★★TBD 추후 HDFS경로 및 메타정보로 컬럼 추가 필요!!★★)
