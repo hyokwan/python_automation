@@ -3,9 +3,9 @@ automation
 
 # 수행 순서
 ## 공사
-### 01.ConstructionList.ipynb 실행 : 공사정보 목록
-### 09.ProjConstYearContractList.ipynb : 연도별 공사계약 목록
-### 02.AcpsRprtList.ipynb : 기성정보 현황
+### 01.ConstructionList.ipynb 실행 : 공사정보 목록 (완료)
+### 09.ProjConstYearContractList.ipynb : 연도별 공사계약 목록 (완료)
+### 02.AcpsRprtList.ipynb : 기성정보 현황 (완료)
    - '기성정보 현황' 요청시 '연도별 공사계약 목록'의 sptno, sptto 정보를 사용해야 함
    - 09.ProjConstYearContractList.ipynb를 선 수행하여 selectIoCmProjConstYearContractList.csv 파일을 output에 생성해야 함
 ### 03.QltPlnList.ipynb : 품질계획 현황
@@ -103,9 +103,12 @@ automation
    - 김미경 작업
    - '설계VE 상세 검토조직 조회' 요청 시 '설계VE 목록 조회'의 ptlcmno 값이 필요함
    - 48.selectIoPtVeBusinessList.ipynb 선 수행 필요
-    - (김효관 작업) 54.건설공사 원가절감사례 목록 조회
- - (김효관 작업) 55.건설공사 원가절감사례 상세 조회
-  - (김효관 작업) 56.설계VE 계약정보
+### 54.selectIoPtCostDownCaseList : 건설공사 원가절감사례 목록 조회 (완료)
+   - 단순목록 조회
+### 55.selectIoPtCostDownCase : 건설공사 원가절감사례 상세 조회 (완료)
+   - 54번항목의 원가절감목록 파라미터 자료 필요
+### 56.selectIoPtVeContractCorpList : 설계VE 계약정보 (완료)
+   - 48번항목의 설계ve 목록 파라미터 자료 필요
 
 ## 입찰공고정보서비스
 ### 22.getBidPblancListInfoCnstwk.ipynb : 입찰공고목록 정보에 대한 공사조회
