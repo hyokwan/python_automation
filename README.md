@@ -15,7 +15,8 @@ automation
      (예> C2004186, 200802 -> 보고년월을 순차 증가하여 호출해도 무의미 동일 중복데이터만 수신됨)
    - respose.body.totalcount != 0 이면, 세부 데이터가 있음. 데이터는 response.body.detailList1 ~ 5 중에 임의의 리스트에 들어오므로 보고년월을 순차 반복 호출한다.
      (예> C2016001, 201512 는 detailList1에 데이터가 있고, C2016001, 202101는 detailList3에 데이터가 있음)
-     
+
+### 05.selectCmProjCorpInfoList : 업체 목록 (완료)
 ### 08.selectIoCmProjFcl02List : 공사중인 시설물(터널) 목록 (완료)
    - 01.ConstructionList.ipynb를 선수행하여 현장번호(sptNo) 정보를 획득해야 함     
 ### 10.selectIoCmProjFcl03List : 공사중인 시설물(절개사면) 목록 (완료)
