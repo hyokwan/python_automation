@@ -16,7 +16,12 @@ automation
    - respose.body.totalcount != 0 이면, 세부 데이터가 있음. 데이터는 response.body.detailList1 ~ 5 중에 임의의 리스트에 들어오므로 보고년월을 순차 반복 호출한다.
      (예> C2016001, 201512 는 detailList1에 데이터가 있고, C2016001, 202101는 detailList3에 데이터가 있음)
 
+### 04.selectSftMctList : 안전관리비 현황 (완료)
+   - '안전관리비 현황' 요청시 '연도별 공사계약 목록'의 'sptno' 정보를 사용해야함 
+   - 착공일자와 준공일자를 기준으로 'crsdYm' 해당년월 정보를 반복 전달하여 정보 수신한다. 
 ### 05.selectCmProjCorpInfoList : 업체 목록 (완료)
+### 06.selectIoCmProjCorpPartList : 업체별 참여공사 목록
+   - 05.selectCmProjCorpInfoList를 선수행하여 사업자번호(brn) 정보를 획득해야 함
 ### 08.selectIoCmProjFcl02List : 공사중인 시설물(터널) 목록 (완료)
    - 01.ConstructionList.ipynb를 선수행하여 현장번호(sptNo) 정보를 획득해야 함     
 ### 10.selectIoCmProjFcl03List : 공사중인 시설물(절개사면) 목록 (완료)
