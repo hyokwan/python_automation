@@ -129,6 +129,8 @@ automation
 ### 56.selectIoPtVeContractCorpList : 설계VE 계약정보 (완료)
    - 48번항목의 설계ve 목록 파라미터 자료 필요
 
+
+# 조달청
 ## 입찰공고정보서비스
 ### 22.getBidPblancListInfoCnstwk.ipynb : 입찰공고목록 정보에 대한 공사조회
    - 이상민 작업
@@ -139,3 +141,19 @@ automation
    - 이상민 작업
    - 기본키 : numOfRows(한 페이지 결과 수), ServiceKey(서비스키), inqryDiv(조회구분), inqryBgnDt(조회시작일시), inqryEndDt(조회종료일시), pageNo(페이지 번호)
    - 특이사항 : 없음
+
+## 공공데이터개방표준서비스
+### 30.getDataSetOpnStdBidPblancInfo.ipynb : 데이터셋 개방표준에 따른 입찰공고정보
+    - 김미경 작업
+    - 기본키 : numOfRows(한 페이지 결과 수), ServiceKey(서비스키), pageNo(페이지 번호)
+    - 특이사항 : 없음
+    
+### 31.getDataSetOpnStdScsbidInfo.ipynb : 데이터셋 개방표준에 따른 낙찰정보
+    - 김미경 작업
+    - 기본키 : numOfRows(한 페이지 결과 수), ServiceKey(서비스키), pageNo(페이지 번호), bsnsDivCd(업무구분코드)
+    - 특이사항 : bsnsDivCd(업무구분코드) = [3(공사), 5(용역)]
+    
+### 32.getDataSetOpnStdCntrctInfo.ipynb : 데이터셋 개방표준에 따른 계약정보
+    - 김미경 작업
+    - 기본키 : numOfRows(한 페이지 결과 수), ServiceKey(서비스키), pageNo(페이지 번호)
+    - 특이사항 : 없음
