@@ -15,6 +15,18 @@ automation
      (예> C2004186, 200802 -> 보고년월을 순차 증가하여 호출해도 무의미 동일 중복데이터만 수신됨)
    - respose.body.totalcount != 0 이면, 세부 데이터가 있음. 데이터는 response.body.detailList1 ~ 5 중에 임의의 리스트에 들어오므로 보고년월을 순차 반복 호출한다.
      (예> C2016001, 201512 는 detailList1에 데이터가 있고, C2016001, 202101는 detailList3에 데이터가 있음)
+     
+### 08. 공사중인 시설물(터널) 목록 (완료)
+   - 01.ConstructionList.ipynb를 선수행하여 현장번호(sptNo) 정보를 획득해야 함     
+### 10. 공사중인 시설물(절개사면) 목록 (완료)
+   - 01.ConstructionList.ipynb를 선수행하여 현장번호(sptNo) 정보를 획득해야 함   
+### 11. 공사중인 시설물(통로박스) 목록 (완료)
+   - 01.ConstructionList.ipynb를 선수행하여 현장번호(sptNo) 정보를 획득해야 함   
+### 12. 공사중인 시설물(옹벽) 목록 (완료)
+   - 01.ConstructionList.ipynb를 선수행하여 현장번호(sptNo) 정보를 획득해야 함   
+### 13. 공사중인 시설물(교량) 목록 (완료)
+   - 01.ConstructionList.ipynb를 선수행하여 현장번호(sptNo) 정보를 획득해야 함   
+
 ## 시설물 (구현 완료)
 ### 19.selectIoFmMngList.ipynb : 시설물 목록 (완료)
    - 총 7913개의 시설물 목록이 존재함. 요청시 pageNo: 1, numOfRows: 1000개로 요청하여 남은 목록 수를 계산하여 pageNo를 증가시키면서 반복 호출한다.
